@@ -10,9 +10,9 @@ from flask_apscheduler import APScheduler
 from functools import wraps
 
 # --- 1. APPLICATION AND CONFIGURATION ---
-HERE_API_KEY = 'ytgGZ-wUPNBeMVp42gQS3v1khDLt3JULvgxNtIN58CM'      # HERE Developer Portal'dan aldığın API anahtarı
-SENDER_EMAIL = 'altugnurcan01@gmail.com' # Gönderici Gmail adresi
-SENDER_PASSWORD = 'nehcituobfvumhum'   # Gmail'den aldığın 16 haneli uygulama şifresi
+HERE_API_KEY = 'YOUR_HERE_API_KEY'
+SENDER_EMAIL = 'YOUR_GMAIL_ADDRESS@gmail.com'
+SENDER_PASSWORD = 'YOUR_GMAIL_APP_PASSWORD'
 
 
 basedir = os.path.abspath(os.path.dirname(__file__))
