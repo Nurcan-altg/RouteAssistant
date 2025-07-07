@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %}Edit Route{% endblock %}
+{% block content %}
+    <h2>Edit Route "{{ route.name }}"</h2>
+    <form method="post">
+        <div class="mb-3">
+            <label for="route_name" class="form-label">New Route Name</label>
+            <input type="text" class="form-control" id="route_name" name="route_name" value="{{ route.name }}" required>
+        </div>
+        <div class="row">
+            <div class="col"><label class="form-label">Origin</label><select class="form-select" name="start_location_id" required>{% for loc in locations %}<option value="{{ loc.id }}" {% if loc.id == route.start_location_id %}selected{% endif %}>{{ loc.name }}</option>{% endfor %}</select></div>
+            <div class="col"><label class="form-label">Destination</label><select class="form-select" name="end_location_id" required>{% for loc in locations %}<option value="{{ loc.id }}" {% if loc.id == route.end_location_id %}selected{% endif %}>{{ loc.name }}</option>{% endfor %}</select></div>
+        </div>
+        <div class="mb-3 mt-3">
+            <label for="transport_mode" class="form-label">Transport Mode</label>
+            <select class="form-select" id="transport_mode" name="transport_mode">
+                <option value="car" {% if route.transport_mode == 'car' %}selected{% endif %}>Car</option>
+                <option value="bicycle" {% if route.transport_mode == 'bicycle' %}selected{% endif %}>Bicycle</option>
+                <option value="pedestrian" {% if route.transport_mode == 'pedestrian' %}selected{% endif %}>Pedestrian</option>
+            </select>
+        </div>
+        <div class="row mt-3">
+            <div class="col"><label class="form-label">Departure Time</label><input type="time" class="form-control" name="departure_time" value="{{ route.departure_time.strftime('%H:%M') }}" required></div>
+            <div class="col"><label class="form-label">Alert Threshold (%)</label><input type="number" class="form-control" name="alert_threshold" value="{{ route.alert_threshold }}" required></div>
+        </div>
+        <button type="submit" class="btn btn-primary mt-3">Save Changes</button>
+        <a href="{{ url_for('dashboard') }}" class="btn btn-secondary mt-3">Cancel</a>
+    </form>
+{% endblock %}

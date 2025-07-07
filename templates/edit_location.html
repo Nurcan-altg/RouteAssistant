@@ -1,0 +1,25 @@
+{% extends 'base.html' %} {% block title %}Edit Location{% endblock %} {% block
+content %}
+<h2>Edit Location "{{ location.name }}"</h2>
+<form method="post">
+  <div class="mb-3">
+    <label for="location_name" class="form-label">New Location Name</label>
+    <input
+      type="text"
+      class="form-control"
+      id="location_name"
+      name="location_name"
+      value="{{ location.name }}"
+      required
+    />
+  </div>
+  <p>
+    <small
+      >Note: To change the position on the map, you must delete this location
+      and add a new one from the map.</small
+    >
+  </p>
+  <button type="submit" class="btn btn-primary">Save Changes</button>
+  <a href="{{ url_for('dashboard') }}" class="btn btn-secondary">Cancel</a>
+</form>
+{% endblock %}

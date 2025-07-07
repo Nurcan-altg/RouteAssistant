@@ -1,0 +1,10 @@
+# Python
+__pycache__/
+*.pyc
+
+# Veritabanı
+site.db
+
+# İşletim Sistemi dosyaları
+.DS_Store
+Thumbs.db
